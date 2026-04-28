@@ -1,0 +1,628 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Subhrasil Chingri — Economist</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=DM+Sans:wght@300;400;500&family=DM+Mono:wght@400&display=swap" rel="stylesheet"/>
+<style>
+  :root {
+    --ink:       #0e0f0f;
+    --paper:     #f5f0e8;
+    --cream:     #ece6d9;
+    --accent:    #2b4c6f;
+    --accent2:   #7a4f2e;
+    --muted:     #6b6558;
+    --rule:      #c9c0b0;
+    --card-bg:   #faf7f2;
+    --serif: 'Cormorant Garamond', Georgia, serif;
+    --sans: 'DM Sans', sans-serif;
+    --mono: 'DM Mono', monospace;
+  }
+
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    background: var(--paper);
+    color: var(--ink);
+    font-family: var(--sans);
+    font-size: 16px;
+    line-height: 1.7;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  /* ── NAV ── */
+  nav {
+    position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+    background: rgba(245,240,232,0.92);
+    backdrop-filter: blur(10px);
+    border-bottom: 1px solid var(--rule);
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 0 clamp(1.5rem, 5vw, 5rem);
+    height: 60px;
+  }
+  .nav-name {
+    font-family: var(--serif);
+    font-size: 1.15rem;
+    font-weight: 600;
+    letter-spacing: .01em;
+    color: var(--accent);
+    text-decoration: none;
+  }
+  .nav-links { display: flex; gap: 2rem; list-style: none; }
+  .nav-links a {
+    font-size: .8rem;
+    font-weight: 500;
+    letter-spacing: .1em;
+    text-transform: uppercase;
+    color: var(--muted);
+    text-decoration: none;
+    transition: color .2s;
+  }
+  .nav-links a:hover { color: var(--accent); }
+
+  /* ── HERO ── */
+  #home {
+    min-height: 100vh;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    align-items: center;
+    padding: 100px clamp(1.5rem, 5vw, 5rem) 60px;
+    gap: 5rem;
+    position: relative;
+    overflow: hidden;
+  }
+  #home::before {
+    content: '';
+    position: absolute; top: -120px; right: -120px;
+    width: 550px; height: 550px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(43,76,111,.08) 0%, transparent 70%);
+    pointer-events: none;
+  }
+  #home::after {
+    content: '';
+    position: absolute; bottom: 0; left: 0; right: 0;
+    height: 1px; background: var(--rule);
+  }
+
+  .hero-text { animation: fadeUp .8s ease both; }
+  .hero-eyebrow {
+    font-family: var(--mono);
+    font-size: .7rem;
+    letter-spacing: .2em;
+    text-transform: uppercase;
+    color: var(--accent2);
+    margin-bottom: 1.2rem;
+  }
+  .hero-name {
+    font-family: var(--serif);
+    font-size: clamp(2.8rem, 5vw, 4.5rem);
+    font-weight: 300;
+    line-height: 1.1;
+    color: var(--ink);
+    margin-bottom: 1.8rem;
+  }
+  .hero-name em {
+    font-style: italic;
+    color: var(--accent);
+  }
+  .hero-bio {
+    font-size: 1rem;
+    color: var(--muted);
+    line-height: 1.8;
+    max-width: 46ch;
+    margin-bottom: 2.5rem;
+  }
+  .hero-tags {
+    display: flex; flex-wrap: wrap; gap: .5rem;
+    margin-bottom: 2.5rem;
+  }
+  .tag {
+    font-size: .72rem;
+    letter-spacing: .06em;
+    text-transform: uppercase;
+    padding: .35em .85em;
+    border: 1px solid var(--accent);
+    color: var(--accent);
+    border-radius: 2px;
+  }
+  .hero-cta {
+    display: flex; gap: 1rem; flex-wrap: wrap;
+  }
+  .btn-primary {
+    display: inline-flex; align-items: center; gap: .5rem;
+    background: var(--accent);
+    color: #fff;
+    text-decoration: none;
+    font-size: .8rem;
+    font-weight: 500;
+    letter-spacing: .08em;
+    text-transform: uppercase;
+    padding: .8em 1.8em;
+    border-radius: 2px;
+    transition: background .2s, transform .15s;
+  }
+  .btn-primary:hover { background: #1d3550; transform: translateY(-1px); }
+  .btn-secondary {
+    display: inline-flex; align-items: center; gap: .5rem;
+    border: 1px solid var(--accent);
+    color: var(--accent);
+    text-decoration: none;
+    font-size: .8rem;
+    font-weight: 500;
+    letter-spacing: .08em;
+    text-transform: uppercase;
+    padding: .8em 1.8em;
+    border-radius: 2px;
+    transition: background .2s, color .2s, transform .15s;
+  }
+  .btn-secondary:hover { background: var(--accent); color: #fff; transform: translateY(-1px); }
+
+  .hero-portrait {
+    display: flex; justify-content: center; align-items: center;
+    animation: fadeIn .9s ease .2s both;
+  }
+  .portrait-frame {
+    position: relative;
+    width: 320px; height: 380px;
+  }
+  .portrait-frame::before {
+    content: '';
+    position: absolute; inset: -12px -12px 12px 12px;
+    border: 1px solid var(--accent);
+    border-radius: 2px;
+    z-index: 0;
+  }
+  .portrait-frame img {
+    width: 100%; height: 100%;
+    object-fit: cover;
+    object-position: center top;
+    border-radius: 2px;
+    position: relative; z-index: 1;
+    filter: grayscale(20%) contrast(1.05);
+  }
+  .portrait-placeholder {
+    width: 100%; height: 100%;
+    background: var(--cream);
+    border-radius: 2px;
+    position: relative; z-index: 1;
+    display: flex; align-items: center; justify-content: center;
+    flex-direction: column; gap: .5rem;
+  }
+  .portrait-placeholder svg { opacity: .25; }
+  .portrait-placeholder span {
+    font-family: var(--mono); font-size: .7rem;
+    letter-spacing: .1em; color: var(--muted);
+  }
+
+  /* ── SECTIONS ── */
+  section { padding: 100px clamp(1.5rem, 5vw, 5rem); }
+  .section-inner { max-width: 900px; margin: 0 auto; }
+  .section-label {
+    font-family: var(--mono);
+    font-size: .68rem;
+    letter-spacing: .22em;
+    text-transform: uppercase;
+    color: var(--accent2);
+    margin-bottom: .8rem;
+  }
+  .section-title {
+    font-family: var(--serif);
+    font-size: clamp(2rem, 3.5vw, 2.8rem);
+    font-weight: 300;
+    line-height: 1.15;
+    margin-bottom: 3rem;
+    color: var(--ink);
+  }
+  .section-title::after {
+    content: '';
+    display: block;
+    width: 48px; height: 2px;
+    background: var(--accent2);
+    margin-top: 1rem;
+  }
+
+  /* ── RESEARCH ── */
+  #research { background: var(--cream); }
+
+  .research-group { margin-bottom: 3.5rem; }
+  .group-label {
+    font-family: var(--mono);
+    font-size: .68rem;
+    letter-spacing: .18em;
+    text-transform: uppercase;
+    color: var(--accent);
+    border-left: 2px solid var(--accent);
+    padding-left: .75rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .paper-card {
+    background: var(--card-bg);
+    border: 1px solid var(--rule);
+    border-radius: 3px;
+    padding: 2rem 2rem 1.5rem;
+    margin-bottom: 1.2rem;
+    position: relative;
+    transition: box-shadow .25s, transform .2s;
+  }
+  .paper-card:hover {
+    box-shadow: 0 8px 40px rgba(43,76,111,.09);
+    transform: translateY(-2px);
+  }
+  .paper-badge {
+    display: inline-block;
+    font-family: var(--mono);
+    font-size: .62rem;
+    letter-spacing: .12em;
+    text-transform: uppercase;
+    padding: .25em .7em;
+    border-radius: 2px;
+    margin-bottom: .9rem;
+  }
+  .badge-published { background: rgba(43,76,111,.1); color: var(--accent); }
+  .badge-working   { background: rgba(122,79,46,.1);  color: var(--accent2); }
+  .badge-progress  { background: rgba(107,101,88,.1); color: var(--muted); }
+
+  .paper-title {
+    font-family: var(--serif);
+    font-size: 1.22rem;
+    font-weight: 600;
+    line-height: 1.35;
+    color: var(--ink);
+    margin-bottom: .6rem;
+  }
+  .paper-title a {
+    color: inherit; text-decoration: none;
+    border-bottom: 1px solid var(--rule);
+    transition: border-color .2s, color .2s;
+  }
+  .paper-title a:hover { color: var(--accent); border-color: var(--accent); }
+
+  .paper-coauthors {
+    font-size: .85rem;
+    color: var(--muted);
+    margin-bottom: .9rem;
+  }
+  .paper-coauthors a { color: var(--accent); text-decoration: none; }
+  .paper-coauthors a:hover { text-decoration: underline; }
+
+  .paper-abstract {
+    font-size: .88rem;
+    color: var(--muted);
+    line-height: 1.75;
+    margin-bottom: 1.1rem;
+  }
+  .paper-meta {
+    display: flex; align-items: center; gap: 1rem; flex-wrap: wrap;
+  }
+  .paper-journal {
+    font-family: var(--serif);
+    font-style: italic;
+    font-size: .88rem;
+    color: var(--accent2);
+  }
+  .paper-link {
+    font-size: .75rem;
+    font-weight: 500;
+    letter-spacing: .07em;
+    text-transform: uppercase;
+    color: var(--accent);
+    text-decoration: none;
+    display: inline-flex; align-items: center; gap: .3rem;
+    transition: gap .15s, color .2s;
+  }
+  .paper-link:hover { gap: .55rem; color: var(--accent2); }
+
+  /* ── CONTACT ── */
+  #contact { background: var(--paper); }
+
+  .contact-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 3rem;
+    margin-top: 1rem;
+  }
+  .contact-block h3 {
+    font-family: var(--serif);
+    font-size: 1.1rem;
+    font-weight: 600;
+    margin-bottom: 1rem;
+    color: var(--ink);
+  }
+  .contact-item {
+    display: flex; align-items: flex-start; gap: .75rem;
+    margin-bottom: .9rem;
+  }
+  .contact-icon {
+    width: 20px; height: 20px; flex-shrink: 0;
+    margin-top: 2px; color: var(--accent2);
+  }
+  .contact-text { font-size: .9rem; color: var(--muted); line-height: 1.6; }
+  .contact-text a { color: var(--accent); text-decoration: none; }
+  .contact-text a:hover { text-decoration: underline; }
+
+  .social-row {
+    display: flex; gap: 1rem; flex-wrap: wrap; margin-top: 1.5rem;
+  }
+  .social-btn {
+    display: inline-flex; align-items: center; gap: .45rem;
+    font-size: .77rem;
+    font-weight: 500;
+    letter-spacing: .07em;
+    text-transform: uppercase;
+    padding: .55em 1.1em;
+    border: 1px solid var(--rule);
+    border-radius: 2px;
+    color: var(--muted);
+    text-decoration: none;
+    transition: border-color .2s, color .2s, background .2s;
+  }
+  .social-btn:hover {
+    border-color: var(--accent);
+    color: var(--accent);
+    background: rgba(43,76,111,.05);
+  }
+
+  /* ── FOOTER ── */
+  footer {
+    background: var(--ink);
+    color: rgba(245,240,232,.4);
+    text-align: center;
+    padding: 2rem;
+    font-size: .78rem;
+    letter-spacing: .05em;
+  }
+
+  /* ── ANIMATIONS ── */
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(20px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+  @keyframes fadeIn {
+    from { opacity: 0; }
+    to   { opacity: 1; }
+  }
+
+  /* ── RESPONSIVE ── */
+  @media (max-width: 768px) {
+    #home { grid-template-columns: 1fr; gap: 2.5rem; padding-top: 90px; }
+    .hero-portrait { order: -1; }
+    .portrait-frame { width: 220px; height: 260px; }
+    .contact-grid { grid-template-columns: 1fr; }
+    .nav-links { gap: 1.2rem; }
+  }
+  @media (max-width: 480px) {
+    .nav-links { display: none; }
+  }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a class="nav-name" href="#home">Subhrasil Chingri</a>
+  <ul class="nav-links">
+    <li><a href="#home">Home</a></li>
+    <li><a href="#research">Research</a></li>
+    <li><a href="#contact">Contact</a></li>
+    <li><a href="https://drive.google.com/file/d/1z_iKuz6MQK3WsX9PoGA5PilkUzzmuNWK/view?usp=sharing" target="_blank">Vitae</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<section id="home">
+  <div class="hero-text">
+    <p class="hero-eyebrow">PhD Candidate · Economics · IIT Delhi</p>
+    <h1 class="hero-name">Subhrasil<br><em>Chingri</em></h1>
+    <p class="hero-bio">
+      I am a final-year PhD candidate in the Economics unit of the Department of Humanities and Social Sciences at the Indian Institute of Technology Delhi. My research examines how automation reshapes labor markets, gender inequality, the environment, and long-run growth.
+    </p>
+    <div class="hero-tags">
+      <span class="tag">Macroeconomics</span>
+      <span class="tag">Growth Theory</span>
+      <span class="tag">Automation</span>
+      <span class="tag">Environmental Economics</span>
+      <span class="tag">Labor Markets</span>
+    </div>
+    <div class="hero-cta">
+      <a class="btn-primary" href="#research">View Research</a>
+      <a class="btn-secondary" href="https://drive.google.com/file/d/1z_iKuz6MQK3WsX9PoGA5PilkUzzmuNWK/view?usp=sharing" target="_blank">Download CV</a>
+    </div>
+  </div>
+
+  <div class="hero-portrait">
+    <div class="portrait-frame">
+      <!-- Replace src with your actual photo URL -->
+      <div class="portrait-placeholder">
+        <svg width="64" height="64" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <circle cx="32" cy="24" r="12" stroke="#2b4c6f" stroke-width="2"/>
+          <path d="M8 56c0-13.255 10.745-24 24-24s24 10.745 24 24" stroke="#2b4c6f" stroke-width="2" stroke-linecap="round"/>
+        </svg>
+        <span>Photo</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- RESEARCH -->
+<section id="research">
+  <div class="section-inner">
+    <p class="section-label">Academic Work</p>
+    <h2 class="section-title">Research</h2>
+
+    <!-- Published -->
+    <div class="research-group">
+      <p class="group-label">Published Papers</p>
+
+      <div class="paper-card">
+        <span class="paper-badge badge-published">Published</span>
+        <h3 class="paper-title">
+          <a href="https://www.emerald.com/insight/content/doi/10.1108/igdr-09-2023-0129/full/html" target="_blank">
+            The simple analytics of the environmental Kuznets curve: a reformulation
+          </a>
+        </h3>
+        <p class="paper-coauthors">
+          Joint with: <a href="https://hss.iitd.ac.in/faculty/debasis-mondal" target="_blank">Debasis Mondal</a>
+        </p>
+        <p class="paper-abstract">
+          This paper reviews the relationship between per capita income and aggregate emissions in an economy of rational agents. Using the environmental Kuznets curve (EKC) hypothesis — which posits an inverted U-shaped pollution–income relationship — the paper endogenously derives that relationship and extends the relevant literature in an important way.
+        </p>
+        <div class="paper-meta">
+          <span class="paper-journal">Indian Growth and Development Review</span>
+          <a class="paper-link" href="https://drive.google.com/file/d/1l7EZMIe2hEfqZMM-ZaJ5HQYhJf8XqoIS/view?usp=drive_link" target="_blank">
+            Paper →
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Working Papers -->
+    <div class="research-group">
+      <p class="group-label">Working Papers</p>
+
+      <div class="paper-card">
+        <span class="paper-badge badge-working">Working Paper</span>
+        <h3 class="paper-title">
+          <a href="https://research.wu.ac.at/en/publications/can-human-capital-save-labor-automation-education-and-the-global-/" target="_blank">
+            Can Human Capital Save Labor? Automation, Education, and the Global Decline in the Labor Share
+          </a>
+        </h3>
+        <p class="paper-coauthors">
+          Joint with: <a href="https://hss.iitd.ac.in/faculty/debasis-mondal" target="_blank">Debasis Mondal</a> and <a href="https://sites.google.com/view/klausprettner/home" target="_blank">Klaus Prettner</a>
+        </p>
+        <p class="paper-abstract">
+          This paper examines how human capital accumulation can offset automation's negative impact on the global labor share. Using three theoretical models — exogenous and two endogenous frameworks based on Mankiw et al. and Lucas — we find that automation lowers labor share, but this effect is mitigated with rising human capital. Quantitatively, automation explains a 16% decline in wage share without human capital, dropping to 14% with just a 1% increase in human capital. The Lucas-style endogenous model offers the greatest buffer, highlighting human capital as a key policy lever.
+        </p>
+      </div>
+
+      <div class="paper-card">
+        <span class="paper-badge badge-working">Working Paper</span>
+        <h3 class="paper-title">
+          <a href="https://research.wu.ac.at/en/publications/automation-gender-and-inequality-which-tradeoffs-do-policymakers-/" target="_blank">
+            Automation, Gender, and Inequality: Which Tradeoffs do Policymakers Face?
+          </a>
+        </h3>
+        <p class="paper-coauthors">
+          Joint with: <a href="https://hss.iitd.ac.in/faculty/debasis-mondal" target="_blank">Debasis Mondal</a>, <a href="https://www.isid.ac.in/~mbishnu/" target="_blank">Monisankar Bishnu</a>, and <a href="https://sites.google.com/view/klausprettner/home" target="_blank">Klaus Prettner</a>
+        </p>
+        <p class="paper-abstract">
+          This paper studies how automation affects gender and skill-based inequality in the United States. Using an R&amp;D-driven growth model with endogenous education choices, it shows that automation raises demand for high-skilled workers and increases female participation in knowledge-intensive activities, while widening inequality across skills and within genders. The paper highlights trade-offs between growth and inequality under robot taxes, education subsidies, and gender-targeted interventions, showing that female empowerment can simultaneously reduce inequality and promote growth.
+        </p>
+      </div>
+
+      <div class="paper-card">
+        <span class="paper-badge badge-working">Working Paper</span>
+        <h3 class="paper-title">
+          <a href="https://drive.google.com/file/d/1ilY3CWGcl7fggqAcsYT1FtcXqa-y0Zff/view?usp=sharing" target="_blank">
+            Economic growth with human, physical and automation capital: The role of population decline
+          </a>
+        </h3>
+        <p class="paper-coauthors">
+          Joint with: <a href="https://hss.iitd.ac.in/faculty/debasis-mondal" target="_blank">Debasis Mondal</a> and <a href="https://sites.google.com/view/klausprettner/home" target="_blank">Klaus Prettner</a>
+        </p>
+        <p class="paper-abstract">
+          This paper examines long-run economic consequences of population decline when automation and education react endogenously to demographic challenges. We show that, despite negative population growth, positive per capita output growth may be sustained. Growth in automation capital lags behind physical and human capital, while household saving behavior plays a key role. The income share of raw labor decreases in importance as human capital's share remains constant.
+        </p>
+      </div>
+    </div>
+
+    <!-- Work in Progress -->
+    <div class="research-group">
+      <p class="group-label">Work in Progress</p>
+
+      <div class="paper-card">
+        <span class="paper-badge badge-progress">In Progress</span>
+        <h3 class="paper-title">
+          Exploring the Intersection of Automation and Environment: A Theoretical and Empirical Analysis
+        </h3>
+        <p class="paper-coauthors">
+          Joint with: <a href="https://hss.iitd.ac.in/faculty/debasis-mondal" target="_blank">Debasis Mondal</a>
+        </p>
+        <p class="paper-abstract">
+          This paper analyses the impact on per capita CO₂ and NO₂ emissions when automation is one of the factor inputs. Findings suggest that when robots are used in production, aggregate emissions increase compared to a robot-free economy. Additionally, in a robot-induced economy, the time taken for aggregate emissions to peak also increases.
+        </p>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact">
+  <div class="section-inner">
+    <p class="section-label">Get in Touch</p>
+    <h2 class="section-title">Contact</h2>
+
+    <div class="contact-grid">
+      <div class="contact-block">
+        <h3>Reach Me</h3>
+
+        <div class="contact-item">
+          <svg class="contact-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+            <rect x="2" y="4" width="20" height="16" rx="2"/>
+            <path d="m2 7 10 7 10-7"/>
+          </svg>
+          <div class="contact-text">
+            <a href="mailto:Subhrasil.Chingri@hss.iitd.ac.in">Subhrasil.Chingri@hss.iitd.ac.in</a>
+            <span style="color:var(--rule);margin:0 .3em">·</span>Official<br/>
+            <a href="mailto:subhrasilchingri@gmail.com">subhrasilchingri@gmail.com</a>
+            <span style="color:var(--rule);margin:0 .3em">·</span>Personal
+          </div>
+        </div>
+
+        <div class="contact-item">
+          <svg class="contact-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z"/>
+            <circle cx="12" cy="9" r="2.5"/>
+          </svg>
+          <div class="contact-text">
+            Main Building, MS 611, 5th Floor<br/>
+            Indian Institute of Technology Delhi<br/>
+            Hauz Khas, New Delhi — 110016
+          </div>
+        </div>
+      </div>
+
+      <div class="contact-block">
+        <h3>Find Me Online</h3>
+        <div class="social-row">
+          <a class="social-btn" href="https://scholar.google.com/citations?user=zavADl4AAAAJ&hl=en" target="_blank">
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><path d="M12 24a7 7 0 1 1 0-14 7 7 0 0 1 0 14zm0-24L0 9.5h3.5V22h5v-7h7v7h5V9.5H24L12 0z"/></svg>
+            Google Scholar
+          </a>
+          <a class="social-btn" href="http://www.linkedin.com/in/subhrasil-chingri" target="_blank">
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6zM2 9h4v12H2z"/><circle cx="4" cy="4" r="2"/></svg>
+            LinkedIn
+          </a>
+          <a class="social-btn" href="https://github.com/Subhro8166" target="_blank">
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.3 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 21.795 24 17.295 24 12c0-6.63-5.37-12-12-12"/></svg>
+            GitHub
+          </a>
+          <a class="social-btn" href="https://x.com/subhrasilc?s=21" target="_blank">
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+            Twitter / X
+          </a>
+        </div>
+
+        <div style="margin-top:2rem;">
+          <a class="btn-primary" href="https://drive.google.com/file/d/1z_iKuz6MQK3WsX9PoGA5PilkUzzmuNWK/view?usp=sharing" target="_blank">
+            Download CV (Vitae 2026)
+          </a>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<footer>
+  &copy; 2026 Subhrasil Chingri &nbsp;·&nbsp; Indian Institute of Technology Delhi
+</footer>
+
+</body>
+</html>
