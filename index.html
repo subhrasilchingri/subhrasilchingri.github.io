@@ -368,9 +368,9 @@
     background: rgba(43,76,111,.05);
   }
 
-   /* ── TEACHING ── */
+  /* ── TEACHING ── */
   #teaching { background: var(--paper); }
- 
+
   .teaching-intro {
     font-size: .95rem;
     color: var(--muted);
@@ -378,7 +378,7 @@
     margin-bottom: 2.5rem;
     line-height: 1.8;
   }
- 
+
   .course-table {
     width: 100%;
     border-collapse: collapse;
@@ -436,7 +436,7 @@
     font-size: .83rem;
     white-space: nowrap;
   }
- 
+
   .teaching-note {
     margin-top: 2rem;
     padding: 1.2rem 1.5rem;
@@ -447,10 +447,10 @@
     color: var(--muted);
     line-height: 1.75;
   }
- 
+
   /* ── TRAVEL ── */
   #travel { background: var(--cream); }
- 
+
   .tab-row {
     display: flex; gap: 0;
     border-bottom: 2px solid var(--rule);
@@ -480,10 +480,10 @@
   .tab-btn.active { color: var(--accent); }
   .tab-btn.active::after { transform: scaleX(1); }
   .tab-btn:hover { color: var(--accent); }
- 
+
   .tab-panel { display: none; }
   .tab-panel.active { display: block; }
- 
+
   .photo-grid {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
@@ -516,7 +516,7 @@
     transition: opacity .25s, transform .25s;
   }
   .photo-item:hover .photo-caption { opacity: 1; transform: translateY(0); }
- 
+
   /* placeholder cards shown before real photos are uploaded */
   .photo-placeholder {
     width: 100%; height: 100%;
@@ -532,7 +532,7 @@
     border-radius: 3px;
   }
   .photo-placeholder svg { opacity: .35; }
- 
+
   /* lightbox */
   .lightbox {
     display: none;
@@ -563,7 +563,7 @@
     font-size: .8rem; letter-spacing: .06em;
     text-align: center;
   }
- 
+
   .travel-note {
     margin-top: 2rem;
     font-size: .8rem;
@@ -572,14 +572,14 @@
     letter-spacing: .05em;
     text-align: center;
   }
- 
+
   @media (max-width: 768px) {
     .photo-grid { grid-template-columns: repeat(2, 1fr); }
   }
   @media (max-width: 480px) {
     .photo-grid { grid-template-columns: 1fr; }
   }
- 
+
   /* ── FOOTER ── */
   footer {
     background: var(--ink);
@@ -589,7 +589,7 @@
     font-size: .78rem;
     letter-spacing: .05em;
   }
- 
+
   /* ── ANIMATIONS ── */
   @keyframes fadeUp {
     from { opacity: 0; transform: translateY(20px); }
@@ -599,7 +599,7 @@
     from { opacity: 0; }
     to   { opacity: 1; }
   }
- 
+
   /* ── RESPONSIVE ── */
   @media (max-width: 768px) {
     #home { grid-template-columns: 1fr; gap: 2.5rem; padding-top: 90px; }
@@ -614,7 +614,7 @@
 </style>
 </head>
 <body>
- 
+
 <!-- NAV -->
 <nav>
   <a class="nav-name" href="#home">Subhrasil Chingri</a>
@@ -627,11 +627,11 @@
     <li><a href="https://drive.google.com/file/d/1z_iKuz6MQK3WsX9PoGA5PilkUzzmuNWK/view?usp=sharing" target="_blank">Vitae</a></li>
   </ul>
 </nav>
- 
+
 <!-- HERO -->
 <section id="home">
   <div class="hero-text">
-    <p class="hero-eyebrow">PhD Student · Economics · IIT Delhi</p>
+    <p class="hero-eyebrow">PhD Candidate · Economics · IIT Delhi</p>
     <h1 class="hero-name">Subhrasil<br><em>Chingri</em></h1>
     <p class="hero-bio">
       I am a final-year PhD candidate in the Economics unit of the Department of Humanities and Social Sciences at the Indian Institute of Technology Delhi. My research examines how automation reshapes labor markets, gender inequality, the environment, and long-run growth.
@@ -652,7 +652,13 @@
   <div class="hero-portrait">
     <div class="portrait-frame">
       <!-- Replace src with your actual photo URL -->
-      <img src="photo2.png" alt="Subhrasil Chingri" />
+      <div class="portrait-placeholder">
+        <svg width="64" height="64" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <circle cx="32" cy="24" r="12" stroke="#2b4c6f" stroke-width="2"/>
+          <path d="M8 56c0-13.255 10.745-24 24-24s24 10.745 24 24" stroke="#2b4c6f" stroke-width="2" stroke-linecap="round"/>
+        </svg>
+        <span>Photo</span>
+      </div>
     </div>
   </div>
 </section>
@@ -760,16 +766,16 @@
   </div>
 </section>
 
-  <!-- TEACHING -->
+<!-- TEACHING -->
 <section id="teaching">
   <div class="section-inner">
     <p class="section-label">IIT Delhi</p>
     <h2 class="section-title">Teaching</h2>
- 
+
     <p class="teaching-intro">
       I have served as a Teaching Assistant at IIT Delhi across six courses spanning macroeconomics, microeconomics, game theory, and computational methods — for both M.A. Economics and B.Tech. students.
     </p>
- 
+
     <table class="course-table">
       <thead>
         <tr>
@@ -779,7 +785,7 @@
         </tr>
       </thead>
       <tbody>
- 
+
         <tr>
           <td class="course-code">HSL5015</td>
           <td>
@@ -788,163 +794,161 @@
           </td>
           <td class="course-years">2025–26, Sem. 1</td>
         </tr>
- 
+
         <tr>
           <td class="course-code">HSL512</td>
           <td>
             <div class="course-name">Macroeconomics I</div>
-            <span class="course-audience aud-phd">PhD / M.A.</span>
+            <span class="course-audience aud-ma">M.A. Students</span>
           </td>
           <td class="course-years">2024–25, Sem. 1</td>
         </tr>
- 
+
         <tr>
           <td class="course-code">HSL612</td>
           <td>
             <div class="course-name">Macroeconomics II</div>
-            <span class="course-audience aud-phd">PhD / M.A.</span>
+            <span class="course-audience aud-ma">M.A. Students</span>
           </td>
           <td class="course-years">2021–22 to 2024–25<br>Sem. 2 (four years)</td>
         </tr>
- 
+
         <tr>
           <td class="course-code">HUL213</td>
           <td>
             <div class="course-name">Macroeconomics</div>
-            <span class="course-audience aud-btech">B.Tech. (U.G.)</span>
+            <span class="course-audience aud-btech">B.Tech. Students</span>
           </td>
           <td class="course-years">2023–24, Sem. 1</td>
         </tr>
- 
+
         <tr>
           <td class="course-code">HUL311</td>
           <td>
             <div class="course-name">Applied Game Theory</div>
-            <span class="course-audience aud-btech">B.Tech. (U.G.)</span>
+            <span class="course-audience aud-btech">B.Tech. Students</span>
           </td>
           <td class="course-years">2022–23, Sem. 1</td>
         </tr>
- 
+
         <tr>
           <td class="course-code">HUL212</td>
           <td>
             <div class="course-name">Microeconomics</div>
-            <span class="course-audience aud-btech">B.Tech. (U.G.)</span>
+            <span class="course-audience aud-btech">B.Tech. Students</span>
           </td>
           <td class="course-years">2021–22, Sem. 1</td>
         </tr>
- 
+
       </tbody>
     </table>
- 
+
     <div class="teaching-note">
-      My teaching spans both theoretical and applied economics — from graduate courses to under-graduate courses for engineers. I have consistently taught Macroeconomics II for four consecutive academic years, reflecting sustained departmental trust and expertise in the area.
+      My teaching spans both theoretical and applied economics — from graduate macroeconomics to introductory microeconomics for engineers. I have consistently taught Macroeconomics II for four consecutive academic years, reflecting sustained departmental trust and expertise in the area.
     </div>
- 
+
   </div>
 </section>
- 
+
 <!-- TRAVEL -->
 <section id="travel">
   <div class="section-inner">
     <p class="section-label">Beyond the Desk</p>
     <h2 class="section-title">Travel</h2>
- 
+
     <!-- Tabs -->
     <div class="tab-row">
       <button class="tab-btn active" onclick="switchTab('india', this)">India</button>
       <button class="tab-btn" onclick="switchTab('abroad', this)">Abroad</button>
     </div>
- 
+
     <!-- INDIA panel -->
     <div class="tab-panel active" id="tab-india">
       <div class="photo-grid">
-        <!-- Replace each placeholder with:
-             <img src="your-photo.jpg" alt="Caption" onclick="openLightbox(this)">
-             Upload photos to your GitHub repo and use the filename as src. -->
- 
+
         <div class="photo-item">
           <img src="India-photo-1.jpg" alt="Sunrise in Gurez Valley" onclick="openLightbox(this)" />
-          <div class="photo-caption">Sunrise in Gurez valley</div>
+          <div class="photo-caption">Sunrise in Gurez Valley</div>
         </div>
- 
+
         <div class="photo-item">
           <img src="India-photo-2.jpg" alt="A snowy peak emerges through the mist, Gurez Valley" onclick="openLightbox(this)" />
-          <div class="photo-caption">A snowy peak emerges through the mist, Gurez valley</div>
+          <div class="photo-caption">A snowy peak emerges through the mist, Gurez Valley</div>
         </div>
- 
+
         <div class="photo-item">
           <img src="India-photo-3.jpg" alt="Royalty in Amber Fort, Jaipur" onclick="openLightbox(this)" />
           <div class="photo-caption">Royalty in Amber Fort, Jaipur</div>
         </div>
- 
+
         <div class="photo-item">
           <img src="India-photo-4.jpg" alt="The Kareri (frozen) Lake" onclick="openLightbox(this)" />
           <div class="photo-caption">The Kareri (frozen) Lake</div>
         </div>
- 
+
         <div class="photo-item">
           <img src="India-photo-5.jpg" alt="Trisul Mountain, Kausani" onclick="openLightbox(this)" />
           <div class="photo-caption">Trisul Mountain, Kausani</div>
         </div>
- 
+
         <div class="photo-item">
           <img src="India-photo-6.jpg" alt="Backwaters of Alleppey" onclick="openLightbox(this)" />
           <div class="photo-caption">Backwaters of Alleppey</div>
         </div>
- 
+
       </div>
     </div>
- 
+
     <!-- ABROAD panel -->
     <div class="tab-panel" id="tab-abroad">
       <div class="photo-grid">
- 
+
         <div class="photo-item">
           <img src="abroad-photo-1.jpg" alt="Stamford Bridge — Home of Chelsea FC" onclick="openLightbox(this)" />
-          <div class="photo-caption">Stamford Bridge -- Home of Chelsea FC</div>
+          <div class="photo-caption">Stamford Bridge — Home of Chelsea FC</div>
         </div>
- 
+
         <div class="photo-item">
           <img src="abroad-photo-2.jpg" alt="City lights shimmer along the river at night, London" onclick="openLightbox(this)" />
-          <div class="photo-caption">City lights shimmer as the night gently drifts along the river, London</div>
+          <div class="photo-caption">City lights shimmer along the river at night, London</div>
         </div>
- 
+
         <div class="photo-item">
           <img src="abroad-photo-3.jpg" alt="City Centre, Birmingham" onclick="openLightbox(this)" />
           <div class="photo-caption">City Centre, Birmingham</div>
         </div>
- 
+
         <div class="photo-item">
           <img src="abroad-photo-4.jpg" alt="Vienna's timeless elegance, where the spirit of opera lingers in every stone" onclick="openLightbox(this)" />
-          <div class="photo-caption">Vienna’s timeless elegance, where the spirit of opera lingers in every stone</div>
+          <div class="photo-caption">Vienna's timeless elegance, where the spirit of opera lingers in every stone</div>
         </div>
- 
+
         <div class="photo-item">
           <img src="abroad-photo-5.jpg" alt="The Archduke Karl equestrian statue at Heldenplatz, Vienna" onclick="openLightbox(this)" />
           <div class="photo-caption">The Archduke Karl equestrian statue at Heldenplatz, Vienna</div>
         </div>
- 
+
         <div class="photo-item">
-           <img src="abroad-photo-6.jpg" alt="A quadriga crowns the Hofburg, poised against the evening sky" onclick="openLightbox(this)" />
+          <img src="abroad-photo-6.jpg" alt="A quadriga crowns the Hofburg, poised against the evening sky" onclick="openLightbox(this)" />
           <div class="photo-caption">A quadriga crowns the Hofburg, poised against the evening sky</div>
         </div>
- 
+
       </div>
     </div>
- 
+
     <p class="travel-note">Click any photo to enlarge · hover to see caption</p>
   </div>
 </section>
- 
+
 <!-- Lightbox -->
 <div class="lightbox" id="lightbox" onclick="closeLightbox()">
   <button class="lb-close" onclick="closeLightbox()">&times;</button>
   <img id="lb-img" src="" alt="" />
   <p class="lb-caption" id="lb-caption"></p>
 </div>
-  
+
 <!-- CONTACT -->
+
 <section id="contact">
   <div class="section-inner">
     <p class="section-label">Get in Touch</p>
@@ -983,7 +987,7 @@
       <div class="contact-block">
         <h3>Find Me Online</h3>
         <div class="social-row">
-          <a class="social-btn" href="https://scholar.google.co.in/scholar?hl=en&as_sdt=0%2C5&q=subhrasil+chingri&oq=s" target="_blank">
+          <a class="social-btn" href="https://scholar.google.com/citations?user=zavADl4AAAAJ&hl=en" target="_blank">
             <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><path d="M12 24a7 7 0 1 1 0-14 7 7 0 0 1 0 14zm0-24L0 9.5h3.5V22h5v-7h7v7h5V9.5H24L12 0z"/></svg>
             Google Scholar
           </a>
@@ -991,7 +995,7 @@
             <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6zM2 9h4v12H2z"/><circle cx="4" cy="4" r="2"/></svg>
             LinkedIn
           </a>
-          <a class="social-btn" href="https://github.com/subhrasilchingri" target="_blank">
+          <a class="social-btn" href="https://github.com/Subhro8166" target="_blank">
             <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.3 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 21.795 24 17.295 24 12c0-6.63-5.37-12-12-12"/></svg>
             GitHub
           </a>
@@ -1015,6 +1019,30 @@
 <footer>
   &copy; 2026 Subhrasil Chingri &nbsp;·&nbsp; Indian Institute of Technology Delhi
 </footer>
+<script>
+  function switchTab(name, btn) {
+    document.querySelectorAll('.tab-panel').forEach(p => p.classList.remove('active'));
+    document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+    document.getElementById('tab-' + name).classList.add('active');
+    btn.classList.add('active');
+  }
 
+  function openLightbox(img) {
+    const lb = document.getElementById('lightbox');
+    document.getElementById('lb-img').src = img.src;
+    document.getElementById('lb-caption').textContent = img.alt;
+    lb.classList.add('open');
+    document.body.style.overflow = 'hidden';
+  }
+
+  function closeLightbox() {
+    document.getElementById('lightbox').classList.remove('open');
+    document.body.style.overflow = '';
+  }
+
+  document.addEventListener('keydown', e => {
+    if (e.key === 'Escape') closeLightbox();
+  });
+</script>
 </body>
 </html>
