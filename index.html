@@ -368,6 +368,218 @@
     background: rgba(43,76,111,.05);
   }
 
+   /* ── TEACHING ── */
+  #teaching { background: var(--paper); }
+ 
+  .teaching-intro {
+    font-size: .95rem;
+    color: var(--muted);
+    max-width: 60ch;
+    margin-bottom: 2.5rem;
+    line-height: 1.8;
+  }
+ 
+  .course-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 1rem;
+  }
+  .course-table thead tr {
+    border-bottom: 2px solid var(--accent);
+  }
+  .course-table thead th {
+    font-family: var(--mono);
+    font-size: .68rem;
+    letter-spacing: .14em;
+    text-transform: uppercase;
+    color: var(--accent);
+    padding: .5rem .8rem .7rem;
+    text-align: left;
+    font-weight: 400;
+  }
+  .course-table tbody tr {
+    border-bottom: 1px solid var(--rule);
+    transition: background .15s;
+  }
+  .course-table tbody tr:hover {
+    background: var(--cream);
+  }
+  .course-table td {
+    padding: .85rem .8rem;
+    font-size: .88rem;
+    vertical-align: top;
+  }
+  .course-code {
+    font-family: var(--mono);
+    font-size: .78rem;
+    color: var(--accent2);
+    white-space: nowrap;
+  }
+  .course-name {
+    color: var(--ink);
+    font-weight: 500;
+    line-height: 1.4;
+  }
+  .course-audience {
+    display: inline-block;
+    font-size: .68rem;
+    letter-spacing: .05em;
+    padding: .2em .55em;
+    border-radius: 2px;
+    margin-top: .3rem;
+  }
+  .aud-ma  { background: rgba(43,76,111,.1);  color: var(--accent); }
+  .aud-btech { background: rgba(122,79,46,.1); color: var(--accent2); }
+  .aud-phd { background: rgba(107,101,88,.1); color: var(--muted); }
+  .course-years {
+    color: var(--muted);
+    font-size: .83rem;
+    white-space: nowrap;
+  }
+ 
+  .teaching-note {
+    margin-top: 2rem;
+    padding: 1.2rem 1.5rem;
+    border-left: 3px solid var(--accent);
+    background: var(--cream);
+    border-radius: 0 3px 3px 0;
+    font-size: .88rem;
+    color: var(--muted);
+    line-height: 1.75;
+  }
+ 
+  /* ── TRAVEL ── */
+  #travel { background: var(--cream); }
+ 
+  .tab-row {
+    display: flex; gap: 0;
+    border-bottom: 2px solid var(--rule);
+    margin-bottom: 2.5rem;
+  }
+  .tab-btn {
+    font-family: var(--mono);
+    font-size: .72rem;
+    letter-spacing: .14em;
+    text-transform: uppercase;
+    color: var(--muted);
+    background: none;
+    border: none;
+    padding: .75rem 1.8rem;
+    cursor: pointer;
+    position: relative;
+    transition: color .2s;
+  }
+  .tab-btn::after {
+    content: '';
+    position: absolute; bottom: -2px; left: 0; right: 0;
+    height: 2px;
+    background: var(--accent);
+    transform: scaleX(0);
+    transition: transform .2s;
+  }
+  .tab-btn.active { color: var(--accent); }
+  .tab-btn.active::after { transform: scaleX(1); }
+  .tab-btn:hover { color: var(--accent); }
+ 
+  .tab-panel { display: none; }
+  .tab-panel.active { display: block; }
+ 
+  .photo-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1rem;
+  }
+  .photo-item {
+    position: relative;
+    aspect-ratio: 4/3;
+    overflow: hidden;
+    border-radius: 3px;
+    background: var(--paper);
+    cursor: pointer;
+  }
+  .photo-item img {
+    width: 100%; height: 100%;
+    object-fit: cover;
+    transition: transform .4s ease;
+    display: block;
+  }
+  .photo-item:hover img { transform: scale(1.05); }
+  .photo-caption {
+    position: absolute; bottom: 0; left: 0; right: 0;
+    background: linear-gradient(transparent, rgba(14,15,15,.72));
+    color: #fff;
+    font-size: .75rem;
+    letter-spacing: .04em;
+    padding: 1.5rem .85rem .6rem;
+    opacity: 0;
+    transform: translateY(4px);
+    transition: opacity .25s, transform .25s;
+  }
+  .photo-item:hover .photo-caption { opacity: 1; transform: translateY(0); }
+ 
+  /* placeholder cards shown before real photos are uploaded */
+  .photo-placeholder {
+    width: 100%; height: 100%;
+    display: flex; flex-direction: column;
+    align-items: center; justify-content: center;
+    gap: .5rem;
+    background: var(--paper);
+    color: var(--rule);
+    font-family: var(--mono);
+    font-size: .65rem;
+    letter-spacing: .1em;
+    border: 1.5px dashed var(--rule);
+    border-radius: 3px;
+  }
+  .photo-placeholder svg { opacity: .35; }
+ 
+  /* lightbox */
+  .lightbox {
+    display: none;
+    position: fixed; inset: 0; z-index: 500;
+    background: rgba(14,15,15,.92);
+    align-items: center; justify-content: center;
+    padding: 2rem;
+  }
+  .lightbox.open { display: flex; }
+  .lightbox img {
+    max-width: 88vw; max-height: 85vh;
+    object-fit: contain;
+    border-radius: 3px;
+    box-shadow: 0 24px 80px rgba(0,0,0,.5);
+  }
+  .lb-close {
+    position: fixed; top: 1.5rem; right: 1.8rem;
+    background: none; border: none;
+    color: rgba(255,255,255,.7); font-size: 2rem;
+    cursor: pointer; line-height: 1;
+    transition: color .2s;
+  }
+  .lb-close:hover { color: #fff; }
+  .lb-caption {
+    position: fixed; bottom: 1.5rem; left: 50%;
+    transform: translateX(-50%);
+    color: rgba(255,255,255,.6);
+    font-size: .8rem; letter-spacing: .06em;
+    text-align: center;
+  }
+ 
+  .travel-note {
+    margin-top: 2rem;
+    font-size: .8rem;
+    color: var(--muted);
+    font-family: var(--mono);
+    letter-spacing: .05em;
+    text-align: center;
+  }
+ 
+  @media (max-width: 768px) {
+    .photo-grid { grid-template-columns: repeat(2, 1fr); }
+  }
+  @media (max-width: 480px) {
+    .photo-grid { grid-template-columns: 1fr; }
+  }
+ 
   /* ── FOOTER ── */
   footer {
     background: var(--ink);
@@ -377,7 +589,7 @@
     font-size: .78rem;
     letter-spacing: .05em;
   }
-
+ 
   /* ── ANIMATIONS ── */
   @keyframes fadeUp {
     from { opacity: 0; transform: translateY(20px); }
@@ -387,7 +599,7 @@
     from { opacity: 0; }
     to   { opacity: 1; }
   }
-
+ 
   /* ── RESPONSIVE ── */
   @media (max-width: 768px) {
     #home { grid-template-columns: 1fr; gap: 2.5rem; padding-top: 90px; }
@@ -402,18 +614,20 @@
 </style>
 </head>
 <body>
-
+ 
 <!-- NAV -->
 <nav>
   <a class="nav-name" href="#home">Subhrasil Chingri</a>
   <ul class="nav-links">
     <li><a href="#home">Home</a></li>
     <li><a href="#research">Research</a></li>
+    <li><a href="#teaching">Teaching</a></li>
+    <li><a href="#travel">Travel</a></li>
     <li><a href="#contact">Contact</a></li>
     <li><a href="https://drive.google.com/file/d/1z_iKuz6MQK3WsX9PoGA5PilkUzzmuNWK/view?usp=sharing" target="_blank">Vitae</a></li>
   </ul>
 </nav>
-
+ 
 <!-- HERO -->
 <section id="home">
   <div class="hero-text">
